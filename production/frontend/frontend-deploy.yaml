@@ -1,0 +1,40 @@
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: frontend-svc
+# spec:
+#   selector:
+#     app: frontend
+#   type: LoadBalancer
+#   ports:
+#     - port: 80
+#       targetPort: 3000
+# ---
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: frontend-deployment
+# spec:
+#   selector:
+#     matchLabels:
+#       app: frontend
+#   template:
+#     metadata:
+#       labels:
+#         app: frontend
+#     spec:
+#       containers:
+#         - name: frontend-c
+#           image: continue3010/frontend:release-4051fd160a0e55ffabe546e6f8edb84be4d541ce
+#           env:
+#             - name: REACT_APP_API
+#               valueFrom:
+#                 configMapKeyRef:
+#                   name: api-configmap
+#                   key: gateway_url
+#           resources:
+#             limits:
+#               memory: 512Mi
+#               cpu: "0.5"
+#           ports:
+#             - containerPort: 3000
