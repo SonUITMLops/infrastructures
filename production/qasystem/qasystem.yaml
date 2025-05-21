@@ -1,0 +1,87 @@
+# BLOG_MICROSERVICE
+apiVersion: v1
+kind: Service
+metadata:
+  name: qasystem-svc
+spec:
+  selector:
+    app: qasystem
+  type: ClusterIP
+  ports:
+    - protocol: TCP
+      port: 8501
+      targetPort: 8501
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: qasystem-deployment
+  labels:
+    app: qasystem
+spec:
+  selector:
+    matchLabels:
+      app: qasystem
+  template:
+    metadata:
+      labels:
+        app: qasystem
+    spec:
+      containers:
+        - name: qasystem-c
+          image: sontapcode/qa-agent:release
+          env:
+            - name: PORT
+              value: "8501"
+            - name: API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: qasystem-secrets
+                  key: API_KEY
+            - name: API_VERSION
+              valueFrom:
+                secretKeyRef:
+                  name: qasystem-secrets
+                  key: API_VERSION
+            - name: AZURE_ENDPOINT
+              valueFrom:
+                secretKeyRef:
+                  name: qasystem-secrets
+                  key: AZURE_ENDPOINT
+            - name: DEEPSEEK_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: qasystem-secrets
+                  key: DEEPSEEK_API_KEY
+            - name: DEPLOYMENT_NAME_2
+              valueFrom:
+                secretKeyRef:
+                  name: qasystem-secrets
+                  key: DEPLOYMENT_NAME_2
+            - name: DOCKER_HUB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: qasystem-secrets
+                  key: DOCKER_HUB_USERNAME
+            - name: DOCKER_HUB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: qasystem-secrets
+                  key: DOCKER_HUB_PASSWORD
+            - name: MODEL_NAME_2
+              valueFrom:
+                secretKeyRef:
+                  name: qasystem-secrets
+                  key: MODEL_NAME_2
+            - name: WANDB_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: qasystem-secrets
+                  key: WANDB_API_KEY
+          resources:
+            limits:
+              memory: 128Mi
+              cpu: "0.25"
+          ports:
+            - containerPort: 8501

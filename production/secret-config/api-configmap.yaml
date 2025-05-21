@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: qasystem-secrets
+type: Opaque
+stringData:
+  API_KEY: your-api-key
+  API_VERSION: v1
+  AZURE_ENDPOINT: https://example-endpoint.com
+  DEEPSEEK_API_KEY: your-deepseek-key
+  DEPLOYMENT_NAME_2: my-deployment
+  DOCKER_HUB_USERNAME: your-docker-username
+  DOCKER_HUB_PASSWORD: your-docker-password
+  MODEL_NAME_2: gpt-x-model
+  WANDB_API_KEY: your-wandb-api-key
