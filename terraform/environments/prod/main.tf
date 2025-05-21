@@ -1,10 +1,10 @@
 module "eks" {
-  source         = "git::https://github.com/DevOpsOrganization2025/infrastructures.git//terraform/modules/eks?ref=main"
+  source         = "C:/Users/MY PC/Desktop/infrastructures/terraform/modules/eks"
   cluster_name   = "cluster"
   node_group_name = "node-group"
-  cluster_iam_role_arn  = "arn:aws:iam::423623850991:role/eks-cluster-role"
-  node_iam_role_arn    ="arn:aws:iam::423623850991:role/eks-node-group-role"
-  subnet_ids     = ["subnet-092f3cb9cd7352383","subnet-0cc19f52319fac8f9"]
+  cluster_iam_role_arn  = "arn:aws:iam::975049964252:role/eks-cluster-role"
+  node_iam_role_arn    ="arn:aws:iam::975049964252:role/aws-service-role/eks-nodegroup.amazonaws.com/AWSServiceRoleForAmazonEKSNodegroup"
+  subnet_ids     = ["subnet-0fbb6a60d244b1ac9","subnet-074f02343b3de2d27"]
   
 }
 
