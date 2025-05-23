@@ -30,7 +30,7 @@ spec:
     spec:
       containers:
         - name: qasystem-c
-          image: sontapcode/qa-agent:release-8364cc929ffeb230e23491ff7aed81e7cd3096b5
+          image: sontapcode/qa-agent:release-8f5070f3de180a4806cb84835b8f0f8374ab1b71
           env:
             - name: PORT
               value: "8501"
