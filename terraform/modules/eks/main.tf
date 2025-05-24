@@ -17,7 +17,7 @@ resource "aws_eks_node_group" "node_group" {
   node_group_name = var.node_group_name
   node_role_arn   = var.node_iam_role_arn 
   subnet_ids      = var.subnet_ids
-  instance_type   =var.instance_type
+  instance_types   =var.instance_types
   scaling_config {
     desired_size = 2
     max_size     = 4

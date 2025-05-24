@@ -19,7 +19,7 @@ module "eks" {
 
   # Dùng subnet từ output của module VPC
     subnet_ids = module.vpc.private_subnet_ids
-    instance_type = ["t3.small"]
+    instance_types = ["t3.small"]
  
 }
 

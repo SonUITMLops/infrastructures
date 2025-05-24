@@ -23,7 +23,7 @@ variable "subnet_ids" {
   type        = list(string)
 }
 
-variable "instance_type" {
+variable "instance_types" {
   description = "List of instance_type"
   type        = list(string)
 }
