@@ -8,5 +8,5 @@ availability_zones  = ["us-east-1a", "us-east-1b"]
 # EKS vars
 cluster_name         = "cluster"
 node_group_name      = "node-group"
-cluster_iam_role_arn = ""
-node_iam_role_arn    = ""
+cluster_iam_role_arn = "arn:aws:iam::423623850991:role/eks-cluster-role"
+node_iam_role_arn    = "arn:aws:iam::423623850991:role/eks-node-group-role"
