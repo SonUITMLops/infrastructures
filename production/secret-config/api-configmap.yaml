@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Secret
 metadata:
-  name: gpt-4o-secret
+  name: qasystem-secrets
 type: Opaque
 stringData:
   deployment_name: "gpt-4o"
