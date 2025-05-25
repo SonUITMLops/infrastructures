@@ -22,3 +22,8 @@ variable "subnet_ids" {
   description = "List of subnet IDs to launch the EKS cluster into"
   type        = list(string)
 }
+
+variable "instance_type" {
+  description = "List of instance_type"
+  type        = list(string)
+}

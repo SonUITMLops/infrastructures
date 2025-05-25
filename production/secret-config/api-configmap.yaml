@@ -1,15 +1,20 @@
 apiVersion: v1
 kind: Secret
 metadata:
-  name: qasystem-secrets
+  name: gpt-4o-secret
 type: Opaque
 stringData:
-  API_KEY: your-api-key
-  API_VERSION: v1
-  AZURE_ENDPOINT: https://example-endpoint.com
-  DEEPSEEK_API_KEY: your-deepseek-key
-  DEPLOYMENT_NAME_2: my-deployment
-  DOCKER_HUB_USERNAME: your-docker-username
-  DOCKER_HUB_PASSWORD: your-docker-password
-  MODEL_NAME_2: gpt-x-model
-  WANDB_API_KEY: your-wandb-api-key
+  deployment_name: "gpt-4o"
+  model_name: "gpt-4o"
+  api_key: "9b6cefbb917f4023aaca9b3a51aaa639"
+  azure_endpoint: "https://askmidas.openai.azure.com/"
+  api_version: "2024-02-15-preview"
+  AZURE_OPENAI_ENGINE: "gpt-4o"
+
+  # Second model
+  api_key_2: "9b6cefbb917f4023aaca9b3a51aaa639"
+  azure_endpoint_2: "https://askmidas.openai.azure.com/"
+  api_version_2: "2024-02-15-preview"
+  deployment_name_2: "gpt-4o-mini"
+  model_name_2: "gpt-4o-mini"
+  AZURE_OPENAI_ENGINE_2: "gpt-4o"

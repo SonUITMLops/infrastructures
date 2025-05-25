@@ -32,56 +32,71 @@ spec:
         - name: qasystem-c
           image: sontapcode/qa-agent:release-145df08feb53b2ae8fc5ec05f95f13c999811268
           env:
-            - name: PORT
-              value: "8501"
-            - name: API_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: qasystem-secrets
-                  key: API_KEY
-            - name: API_VERSION
-              valueFrom:
-                secretKeyRef:
-                  name: qasystem-secrets
-                  key: API_VERSION
-            - name: AZURE_ENDPOINT
-              valueFrom:
-                secretKeyRef:
-                  name: qasystem-secrets
-                  key: AZURE_ENDPOINT
-            - name: DEEPSEEK_API_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: qasystem-secrets
-                  key: DEEPSEEK_API_KEY
-            - name: DEPLOYMENT_NAME_2
-              valueFrom:
-                secretKeyRef:
-                  name: qasystem-secrets
-                  key: DEPLOYMENT_NAME_2
-            - name: DOCKER_HUB_USERNAME
-              valueFrom:
-                secretKeyRef:
-                  name: qasystem-secrets
-                  key: DOCKER_HUB_USERNAME
-            - name: DOCKER_HUB_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: qasystem-secrets
-                  key: DOCKER_HUB_PASSWORD
-            - name: MODEL_NAME_2
-              valueFrom:
-                secretKeyRef:
-                  name: qasystem-secrets
-                  key: MODEL_NAME_2
-            - name: WANDB_API_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: qasystem-secrets
-                  key: WANDB_API_KEY
+        - name: deployment_name
+          valueFrom:
+            secretKeyRef:
+              name: qasystem-secrets
+              key: deployment_name
+        - name: model_name
+          valueFrom:
+            secretKeyRef:
+              name: qasystem-secrets
+              key: model_name
+        - name: api_key
+          valueFrom:
+            secretKeyRef:
+              name: qasystem-secrets
+              key: api_key
+        - name: azure_endpoint
+          valueFrom:
+            secretKeyRef:
+              name: qasystem-secrets
+              key: azure_endpoint
+        - name: api_version
+          valueFrom:
+            secretKeyRef:
+              name: qasystem-secrets
+              key: api_version
+        - name: AZURE_OPENAI_ENGINE
+          valueFrom:
+            secretKeyRef:
+              name: qasystem-secrets
+              key: AZURE_OPENAI_ENGINE
+
+        # Second model
+        - name: api_key_2
+          valueFrom:
+            secretKeyRef:
+              name: qasystem-secrets
+              key: api_key_2
+        - name: azure_endpoint_2
+          valueFrom:
+            secretKeyRef:
+              name: qasystem-secrets
+              key: azure_endpoint_2
+        - name: api_version_2
+          valueFrom:
+            secretKeyRef:
+              name: qasystem-secrets
+              key: api_version_2
+        - name: deployment_name_2
+          valueFrom:
+            secretKeyRef:
+              name: qasystem-secrets
+              key: deployment_name_2
+        - name: model_name_2
+          valueFrom:
+            secretKeyRef:
+              name: qasystem-secrets
+              key: model_name_2
+        - name: AZURE_OPENAI_ENGINE_2
+          valueFrom:
+            secretKeyRef:
+              name: qasystem-secrets
+              key: AZURE_OPENAI_ENGINE_2
           resources:
             limits:
-              memory: 128Mi
-              cpu: "0.25"
+              memory: 512Mi
+              cpu: "1"
           ports:
             - containerPort: 8501

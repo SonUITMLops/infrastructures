@@ -1,4 +1,3 @@
-
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -8,20 +7,20 @@ spec:
   project: default
 
   source:
-    repoURL: https://github.com/DevOpsOrganization2025/infrastructures.git
+    repoURL: https://github.com/SonUITMLops/infrastructures.git
     targetRevision: HEAD
     path: production
     directory:
       recurse: true
 
   destination:
-  # Change this to K8S endpoint
+    # Change this to K8S endpoint
     server: https://kubernetes.default.svc
     namespace: app
 
   syncPolicy:
     syncOptions:
-    - CreateNamespace=true
+      - CreateNamespace=true
     automated:
       prune: true
       selfHeal: true
