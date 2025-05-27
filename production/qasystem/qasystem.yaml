@@ -29,7 +29,7 @@ spec:
     spec:
       containers:
         - name: qasystem-c
-          image: sontapcode/qa-agent:release-e2b00110be37048aeb6a2f9fe64de0bc1214534a
+          image: sontapcode/qa-agent:release-a32e8dfc24c1e976e83a77eece833d8eb8a38144
           env:
             - name: deployment_name
               valueFrom:
